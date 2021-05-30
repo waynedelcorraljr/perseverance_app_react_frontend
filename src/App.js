@@ -1,25 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+import EarthdateContainer from './components/EarthdateContainer';
+import PhotosContainer from './components/PhotosContainer';
+import { connect } from 'react-redux';
+import { fetchEarthdates } from './actions/fetchEarthdates'
+import { addPhotosToStore } from './actions/addPhotosToStore';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchEarthdates()
+  }
+
+  render(){
+    console.log(this.props)
+    return (
+      <div className="App">
+        <EarthdateContainer earthdates={this.props.earthdates} addPhotos={this.props.addPhotosToStore}/>
+        <PhotosContainer photos={this.props.photos} />
+      </div>
+    );
+  }
 }
 
-export default App;
+const mapStateToProps = state => {
+  return {
+      earthdates: state.earthdates,
+      photos: state.photos
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchEarthdates: () => dispatch(fetchEarthdates()),
+    addPhotosToStore: (photos) => dispatch(addPhotosToStore(photos))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
