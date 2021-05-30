@@ -13,8 +13,7 @@ class Earthdate extends Component {
         console.log(this.props)
         return (
             <div>
-                <h5>{this.props.earthdate.attributes.date}</h5>
-                <button onClick={event => this.handleOnClick(event)} id={this.props.earthdate.id}>View Photos</button>
+                <button onClick={event => this.handleOnClick(event)} id={this.props.earthdate.id}>{this.props.earthdate.attributes.date}</button>
             </div>
         )
     }

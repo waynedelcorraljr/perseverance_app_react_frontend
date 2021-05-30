@@ -17,6 +17,7 @@ class EarthdateContainer extends Component {
         return (
             <div>
                 <h1>Perseverance App (React.0)</h1>
+                <h3>Please select date to view photos.</h3>
 
                     {this.renderEarthdates()}
 
