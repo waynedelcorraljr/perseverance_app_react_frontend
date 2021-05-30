@@ -18,9 +18,9 @@ class EarthdateContainer extends Component {
             <div>
                 <h1>Perseverance App (React.0)</h1>
                 <h3>Please select date to view photos.</h3>
-
+                <div className='btn-group'>
                     {this.renderEarthdates()}
-
+                </div>
             </div>
         )
     }
