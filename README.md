@@ -1,5 +1,5 @@
 # perseverance_app_react_frontend
-JS app for viewing Perseverance Rover photos.
+React app for viewing Perseverance Rover photos.
 
 ## Visit backend and complete local install before next step.
 - https://github.com/waynedelcorraljr/perseverance_app_backend
